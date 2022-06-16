@@ -51,7 +51,7 @@ class Grid:
             if self.grid[row][0]==self.grid[row][1]==self.grid[row][2] != 0:
                 if areyawinning:
                     color  = RED_WINE if self.grid[row][0]==2 else NAVY_BLUE
-                    pos1   = (20, row*SQSIZE + SQSIZE//2)
+                    pos1   = (20,            row*SQSIZE + SQSIZE//2)
                     pos2   = (GRID_WIDTH-20, row*SQSIZE + SQSIZE//2)
                     pygame.draw.line(ekran, color, pos1, pos2, CROSS_WIDTH)
                 return self.grid[row][0]
