@@ -33,8 +33,10 @@ class Grid:
         self.grid       =np.zeros((ROWS,COLS))
         self.emptyGrids =self.grid
         self.filledGrid =0
-
+    
+    
     def winning(self,areyawinning=False):
+        #vertical
         for col in range(COLS):
             if self.grid[0][col]==self.grid[1][col]==self.grid[2][col] != 0:
                 if areyawinning:
@@ -44,7 +46,7 @@ class Grid:
                     pygame.draw.line(ekran, color, pos1, pos2, LINE_WIDTH)
                 return self.grid[0][col]
 
-
+        #horizontal
         for row in range(ROWS):
             if self.grid[row][0]==self.grid[row][1]==self.grid[row][2] != 0:
                 if areyawinning:
@@ -53,7 +55,8 @@ class Grid:
                     pos2   = (GRID_WIDTH-20, row*SQSIZE + SQSIZE//2)
                     pygame.draw.line(ekran, color, pos1, pos2, CROSS_WIDTH)
                 return self.grid[row][0]
-        
+            
+        # \
         if self.grid[0][0]==self.grid[1][1]==self.grid[2][2] != 0:
             if areyawinning:
                 color  = RED_WINE if self.grid[1][1]==2 else NAVY_BLUE
@@ -62,6 +65,7 @@ class Grid:
                 pygame.draw.line(ekran, color, pos1, pos2, CROSS_WIDTH)
             return self.grid[1][1]
         
+        # /
         if self.grid[2][0]==self.grid[1][1]==self.grid[0][2] != 0:
             if areyawinning:
                 color  = RED_WINE if self.grid[1][1]==2 else NAVY_BLUE
